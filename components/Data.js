@@ -54,8 +54,8 @@ const allproducts = [
 ];
 
 const Data = () => {
-  const [searchValue, setSearchValue] = useState('');
-  const [searchArray, setSearchArray] = useState('');
+  const [searchValue, setSearchValue] = useState([]);
+  const [searchArray, setSearchArray] = useState([]);
 
   const handleSearchInputChanges = event => {
     setSearchValue(event.target.value);
@@ -81,9 +81,12 @@ const Data = () => {
     setCount(count + 1);
   }
 
-  const mapSearchArray = allproducts.map((product, key) => (
+  const mapSearchArray = searchArray.map((product, key) => (
     <li key={product.id}>
       {product.productName} - {product.unit} {product.measure}
+      <br />
+      <img src={product.img} width="100px"></img>
+      <br />
     </li>
   ));
 
