@@ -1,15 +1,19 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Head from 'next/head';
 import Nav from '../components/nav';
-import Data from '../components/Data';
+import Link from 'next/link';
+import Search from './search';
 
 const Home = () => (
   <div>
     <Head>
       <title>Home</title>
+      <Link href="/Search">
+        <a>Search Page</a>
+      </Link>
     </Head>
     <Nav />
-    <Data />
+    <Search />
 
     <></>
     <style jsx>{`
