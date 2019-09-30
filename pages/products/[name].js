@@ -1,10 +1,12 @@
-import React, { Component } from 'react';
+import React, { useState, Component } from 'react';
 import Head from 'next/head';
 import Nav from '../../components/nav';
 import Link from 'next/link';
 import Search from '../search';
 import allproducts from '../../data';
 import { useRouter } from 'next/router';
+import nextCookie from 'next-cookies';
+import Cookie from 'js-cookie';
 
 //   allproducts
 
@@ -27,40 +29,55 @@ export default function Product() {
   const myProduct = allproducts.find(function(element) {
     return element.productName === router.query.name;
   });
-  console.log(myProduct);
-  // export default function Us(props) {
-  //   console.log(props.url.query);
-  //   const name = props.url.query.name; // "car"
-  //   const product = products.find(product => {
-  //     return product.name === name;
-  //   });
+
+  const [productAmount, setProductAmount] = useState(1);
+  const handleAmountInputChanges = event => {
+    setProductAmount(event.target.value);
+  };
+  const productId = myProduct.id;
+
+  const sendCookies = event => {
+    const productWithAmount = {
+      productId: productId,
+      productAmount: productAmount
+    };
+    let myFirstCookie = 'Cart=' + JSON.stringify(productWithAmount);
+
+    console.log(productWithAmount);
+    document.cookie = myFirstCookie;
+  };
 
   return (
     <>
       <h1>PRODUCT</h1>
       <br />
 
-      <p>
+      <div>
         <h2> {myProduct.productName}</h2>
-        <p>
+        <div>
           {' '}
           {myProduct.unit} {myProduct.measure} - {myProduct.price} €
-        </p>
+        </div>
         <br />
         <img src={myProduct.img} width="250px"></img>
         <p>{myProduct.infoShort}</p>
         <p>{myProduct.infoLong}</p>
         <br />
-      </p>
-      <div>
-        <form onsubmit={}>
-          <label>Quantity: </label>
-          <input name="Quantity" type="number" min="1"></input>
-          <button>Put in Cart</button>
-        </form>
       </div>
-
-      <p></p>
+      <div>
+        <input
+          id="chart"
+          type="number"
+          min="1"
+          max="50"
+          step="1"
+          value={productAmount}
+          onChange={handleAmountInputChanges}
+        />
+        <button onClick={sendCookies}>Put in Cart</button>
+        <p>productAmount: {productAmount}</p>
+        <p></p>
+      </div>
     </>
   );
 }
