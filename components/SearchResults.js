@@ -1,7 +1,8 @@
 import React, { useState, Component } from 'react';
 import styled from 'styled-components';
-import allproducts from '../data';
+import getAllProducts from '../data';
 
+const allproducts = getAllProducts();
 const Productlink = styled.a`
   max-width: 150px;
 

@@ -3,7 +3,7 @@ const allproducts = [
     productName: 'Apfelringe',
     id: 0,
     category: 'Obst',
-    price: 3.5,
+    price: 2.5,
     measure: 'g',
     unit: 100,
     img:
@@ -51,4 +51,15 @@ const allproducts = [
   }
 ];
 
+/*
+
 export default allproducts;
+*/
+
+export function getProductById(id) {
+  return allproducts.find(allproducts => allproducts.id === id);
+}
+
+export default function getAllProducts() {
+  return allproducts;
+}

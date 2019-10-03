@@ -1,6 +1,37 @@
 import Document, { Head, Main, NextScript } from 'next/document';
+import Nav from '../components/nav';
+import Header from '../components/header';
+import Search from '../components/search';
+import nextCookie from 'next-cookies';
+
 // Import styled components ServerStyleSheet
-import { ServerStyleSheet } from 'styled-components';
+import styled, { ServerStyleSheet } from 'styled-components';
+
+const Body = styled.body`
+  color: #523924;
+  font-family: 'Noto Sans', sans-serif;
+
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 33% 33% 33%;
+  grid-template-rows: 100px 200px 100px 500px auto;
+`;
+
+const StyledHeader = styled(Header)`
+  grid-column: 1 / 3;
+  grid-row: 2;
+  display: flex;
+  flex-direction: row;
+  background-image: url('/static/ErnteDankBG.png');
+`;
+const StyledSearch = styled(Search)`
+  grid-column: 2;
+  grid-row: 3;
+`;
+const StyledNav = styled(Nav)`
+  grid-column: 3;
+  grid-row: 1;
+`;
 
 export default class MyDocument extends Document {
   static getInitialProps({ renderPage }) {
@@ -27,11 +58,25 @@ export default class MyDocument extends Document {
           {/* Step 5: Output the styles in the head  */}
           {this.props.styleTags}
         </Head>
-        <body>
+        <Body>
+          <StyledNav />
+          <StyledHeader />
+
+          <StyledSearch />
           <Main />
           <NextScript />
-        </body>
+        </Body>
       </html>
     );
   }
 }
+
+//    GET INFO FROM COOKIE 'SUM'
+
+/* export default function MyDocument(props) {
+      console.log(props.cookies.Sum);
+      const totalInCart = props.cookies.Sum;
+      const totalInCartObject = JSON.parse(totalInCart);
+      console.log(totalInCartObject);
+    }
+*/

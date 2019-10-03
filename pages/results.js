@@ -1,10 +1,13 @@
 import React, { useState, Component } from 'react';
 import styled from 'styled-components';
-import allproducts from '../data';
+import getAllProducts from '../data';
 import Link from 'next/link';
-import Search from './search';
+import Search from '../components/search';
 import { useRouter } from 'next/router';
+import Nav from '../components/nav';
+import Header from '../components/header';
 
+const allproducts = getAllProducts();
 const Productlink = styled.a`
   max-width: 150px;
   text-decoration: none;
@@ -45,6 +48,7 @@ const Results = () => {
   return (
     <>
       <div>
+        <div></div>
         <ul>{mapSearchArray}</ul>
       </div>
 

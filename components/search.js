@@ -1,9 +1,13 @@
 import React, { useState, Component } from 'react';
 import styled from 'styled-components';
-import allproducts from '../data';
+import getAllProducts from '../data';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import Cartbox from './cartbox';
+import Nav from './nav';
+import Header from './header';
 
+const allproducts = getAllProducts();
 const Productlink = styled.a`
   max-width: 150px;
 
@@ -51,6 +55,7 @@ const Search = () => {
           <button onClick={increment}>+</button>
           {count}
         </div>
+        <br />
       </div>
 
       <br />

@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`gets a product by id from the database 1`] = `
+Object {
+  "amount": false,
+  "category": "Obst",
+  "id": 0,
+  "img": "https://cdn.pixabay.com/photo/2018/01/23/05/13/apple-3100673_1280.jpg",
+  "inCart": false,
+  "infoLong": "Die so geschnittenen Äpfel können frisch verarbeitet werden, wobei das entsprechende Kochrezept die weitere Vorgehensweise angibt. Um die Verfärbung zu unterbinden, wird das Obst meist direkt nach dem Schneiden in Flüssigkeit gegeben (meist handelt es sich um mit Zusätzen wie Zitrone oder Essig versetztes Wasser). Die Rezepte zur Verarbeitung frischer Apfelringe reichen von süß – mit Zimt und Zucker, oder in flüssige Schokolade getunkt – bis sauer – mit grünem Paprika in Essig eingelegt. Die Ringe werden auch in verschiedenen Teigen gebacken oder frittiert. Für die Herstellung von getrockneten Apfelringen gibt es mehrere Methoden. Das Obst kann im Backofen (Umluft) bei geöffneter Tür, im Dörrapparat oder in der Mikrowelle getrocknet werden. Für die Länge des Trockenvorgangs ist die Dicke der Ringe maßgeblich. Die Apfelringe sollten trocken, aber noch weich und biegsam sein. Für die Aufbewahrung der ausgekühlten Apfelringe eignen sich z. B. Gläser mit Schraubverschluss, Dosen oder die Lagerung in dichten Leinenbeutel, oder als Kette auf eine Schnur gezogen in dunklen, trockenen Räumen, die keinen Temperaturschwankungen ausgesetzt sind. In allen Fällen ist eine regelmäßige Vorratskontrolle unerlässlich. Die so getrockneten Früchte können pur verzehrt werden, man kann sie aber auch in Wasser, Alkohol oder Fruchtsaft einlegen und weiterverarbeiten.",
+  "infoShort": "Die Äpfel werden gewaschen und mit einem Apfelausstecher vom Kernhaus befreit. Je nach weiterer Verwendung oder persönlichem Geschmack werden sie geschält und dann in Ringe geschnitten.",
+  "measure": "g",
+  "price": 2.5,
+  "productName": "Apfelringe",
+  "rating": 4.9,
+  "unit": 100,
+}
+`;

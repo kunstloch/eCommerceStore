@@ -1,12 +1,12 @@
 import React, { useState, Component } from 'react';
-import Head from 'next/head';
-import Nav from '../../components/nav';
-import Link from 'next/link';
-import Search from '../search';
-import allproducts from '../../data';
+import getAllProducts from '../../data';
 import { useRouter } from 'next/router';
 import nextCookie from 'next-cookies';
-import Cookie from 'js-cookie';
+import Cookies from 'js-cookie';
+import Router from 'next/router';
+import Nav from '../../components/nav';
+import Header from '../../components/header';
+import Search from '../../components/search';
 
 //   allproducts
 
@@ -22,7 +22,7 @@ import Cookie from 'js-cookie';
 //   inCart: false,
 //    amount: false,
 //   rating: 4.9
-
+const allproducts = getAllProducts();
 export default function Product() {
   const router = useRouter();
 
@@ -34,17 +34,61 @@ export default function Product() {
   const handleAmountInputChanges = event => {
     setProductAmount(event.target.value);
   };
-  const productId = myProduct.id;
+  const id = myProduct.id;
+
+  // * 1 to covert Strint to Number. Better way?
 
   const sendCookies = event => {
-    const productWithAmount = {
-      productId: productId,
-      productAmount: productAmount
-    };
-    let myFirstCookie = 'Cart=' + JSON.stringify(productWithAmount);
+    const productWithAmount = [
+      {
+        id: id,
+        productAmount: productAmount * 1
+      }
+    ];
 
-    console.log(productWithAmount);
-    document.cookie = myFirstCookie;
+    /* let myFirstCookie = 'Cart=' + JSON.stringify(productWithAmount);
+    document.cookie = myFirstCookie; */
+
+    checkCookie();
+    const cookieHere = Cookies.get('Cart');
+    function checkCookie() {
+      if (Cookies.get('Cart') === undefined) {
+        let myFirstCookie =
+          'Cart=' + JSON.stringify(productWithAmount) + '; path=/';
+        document.cookie = myFirstCookie;
+      } else if (Cookies.get('Cart').includes(`\"id\":` + myProduct.id + `,`)) {
+        // Check if ID is already in cart. Add value to amount.
+        let cookieOld = JSON.parse(Cookies.get('Cart'));
+        changeAmount(id, productAmount);
+        function changeAmount(id, productAmount) {
+          for (var i in cookieOld) {
+            if (cookieOld[i].id == id) {
+              cookieOld[i].productAmount =
+                cookieOld[i].productAmount + productAmount * 1;
+              break;
+            }
+          }
+        }
+        document.cookie = 'Cart=' + JSON.stringify(cookieOld) + '; path=/';
+      } else {
+        let cookieOld = JSON.parse(Cookies.get('Cart'));
+        const cookieNewArray = cookieOld.concat(productWithAmount);
+        const sendcookieNewArray =
+          'Cart=' + JSON.stringify(cookieNewArray) + '; path=/';
+        document.cookie = sendcookieNewArray;
+      }
+    }
+
+    Router.push({
+      pathname: '/cart',
+      query: { name: 'cart' }
+    });
+
+    /*  redirect();
+    function redirect() {
+      var url = '/cart';
+      window.location.href = url; 
+    }*/
   };
 
   return (
@@ -76,7 +120,7 @@ export default function Product() {
         />
         <button onClick={sendCookies}>Put in Cart</button>
         <p>productAmount: {productAmount}</p>
-        <p></p>
+        <p>Mein Cookie: {Cookies.get('Cart')}</p>
       </div>
     </>
   );
