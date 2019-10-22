@@ -14,8 +14,8 @@ const TitelBox = styled.div`
   width: 100%;
   background-color: #eedca8;
   height: 210px;
-  background-image: url('/static/ErnteDankBG.png');
-  background-size: 80% auto;
+  background-image: url('/static/ErnteDankBG01.png');
+  background-size: 125%;
 `;
 
 const HeaderTitel = styled.h1`

@@ -6,11 +6,12 @@ import { useRouter } from 'next/router';
 import nextCookie from 'next-cookies';
 import Cookies from 'js-cookie';
 import Search from '../components/search';
+import fetch from 'cross-fetch';
 
 const allproducts = getAllProducts();
 
 export default function Cart(props) {
-  console.log('Cookie', props.cookies.Cart);
+  console.log('Cookie:', props.cookies.Cart);
   const productsInCart = props.cookies.Cart;
   const productsInCartArray = JSON.parse(productsInCart);
   console.log(productsInCartArray);
@@ -64,13 +65,7 @@ export default function Cart(props) {
         ProductName: {product.productName} - Amount: {product.productAmount} -
         Price per Unit: {product.price} EUR - Price: {product.totalPrice} EUR
       </li>
-      {/*    <input
-        type="number"
-        min="0"
-        max="50"
-        value={newAllProductsInCart[id].productAmount}
-        onChange={e => setNewAllProductsInCart(e.target.value)}
-  />*/}
+      <input type="number" min="0" max="50" />
 
       <br />
       <br />
@@ -92,8 +87,36 @@ export default function Cart(props) {
   );
 }
 
-Cart.getInitialProps = async ctx => {
-  // console.log(nextCookie(ctx));
+// Cart.getInitialProps = async ctx => {
+//   console.log('NASE 2');
+//   console.log(JSON.stringify(nextCookie(ctx)));
+//   return { cookies: nextCookie(ctx) };
+// };
 
-  return { cookies: nextCookie(ctx) };
+Cart.getInitialProps = async ctx => {
+  const cookies = nextCookie(ctx);
+  console.log('cookies.Cart');
+  console.log(cookies.Cart);
+  console.log(typeof cookies.Cart);
+  const listOfIdsString = JSON.parse(cookies.Cart);
+  const listOfIds = listOfIdsString.map(obj => obj.id);
+  console.log('listOfIds');
+  console.log(listOfIds);
+
+  const response = await fetch(`http://localhost:3000/api`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json; charset=utf-8'
+    },
+    body: JSON.stringify({
+      incart: listOfIds
+    })
+  });
+
+  const data = await response.json();
+
+  console.log(cookies);
+  console.log(' sollte von zwei IDs sein');
+  console.log(data.rows);
+  return { product: data.rows, cookies: cookies };
 };

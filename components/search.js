@@ -21,6 +21,12 @@ const Productlink = styled.a`
   }
 `;
 
+const SearchContainer = styled.div`
+  grid-column: 2;
+  grid-row: 3;
+  align-items: center;
+`;
+
 const Search = () => {
   const [searchValue, setSearchValue] = useState([]);
 
@@ -29,6 +35,7 @@ const Search = () => {
   };
 
   let [count, setCount] = useState(1);
+
   function increment() {
     setCount(count + 1);
   }
@@ -40,12 +47,12 @@ const Search = () => {
   // };
 
   return (
-    <>
+    <SearchContainer>
       <div>
         <div>
           <form action="/results">
             <input
-              name="q"
+              name="results"
               value={searchValue}
               onChange={handleSearchInputChanges}
             />
@@ -59,7 +66,7 @@ const Search = () => {
       </div>
 
       <br />
-    </>
+    </SearchContainer>
   );
 };
 

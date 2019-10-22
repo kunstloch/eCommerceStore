@@ -25,12 +25,12 @@ const StyledHeader = styled(Header)`
   background-image: url('/static/ErnteDankBG.png');
 `;
 const StyledSearch = styled(Search)`
-  grid-column: 2;
-  grid-row: 3;
+  grid-column: 3;
+  grid-row: 2;
 `;
 const StyledNav = styled(Nav)`
-  grid-column: 3;
-  grid-row: 1;
+  grid-column: 1;
+  grid-row: 3;
 `;
 
 export default class MyDocument extends Document {
@@ -54,7 +54,6 @@ export default class MyDocument extends Document {
     return (
       <html>
         <Head>
-          <title>My page</title>
           {/* Step 5: Output the styles in the head  */}
           {this.props.styleTags}
         </Head>

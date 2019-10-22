@@ -7,6 +7,31 @@ import Router from 'next/router';
 import Nav from '../../components/nav';
 import Header from '../../components/header';
 import Search from '../../components/search';
+import fetch from 'cross-fetch';
+
+type Props = {
+  product: {
+    id: Number;
+    productname: String;
+    price: Number;
+    img: string;
+    key: Number;
+    unit: Number;
+    infoshort: String;
+    infolong: String;
+    measure: String;
+  };
+};
+
+function changeAmount(id, productAmount, cookieOld) {
+  for (var i in cookieOld) {
+    if (cookieOld[i] && cookieOld[i].id == id) {
+      cookieOld[i].productAmount =
+        cookieOld[i].productAmount + productAmount * 1;
+      break;
+    }
+  }
+}
 
 //   allproducts
 
@@ -23,18 +48,19 @@ import Search from '../../components/search';
 //    amount: false,
 //   rating: 4.9
 const allproducts = getAllProducts();
-export default function Product() {
+export default function Product(props: Props) {
   const router = useRouter();
 
-  const myProduct = allproducts.find(function(element) {
-    return element.productName === router.query.name;
-  });
+  // const props.product = allproducts.find(function(element) {
+  //   return element.productName === router.query.name;
+  // });
+  if (!props.product) return <div>Product not found.</div>;
 
   const [productAmount, setProductAmount] = useState(1);
   const handleAmountInputChanges = event => {
     setProductAmount(event.target.value);
   };
-  const id = myProduct.id;
+  const id = props.product.id;
 
   // * 1 to covert Strint to Number. Better way?
 
@@ -56,19 +82,13 @@ export default function Product() {
         let myFirstCookie =
           'Cart=' + JSON.stringify(productWithAmount) + '; path=/';
         document.cookie = myFirstCookie;
-      } else if (Cookies.get('Cart').includes(`\"id\":` + myProduct.id + `,`)) {
+      } else if (
+        Cookies.get('Cart').includes(`\"id\":` + props.product.id + `,`)
+      ) {
         // Check if ID is already in cart. Add value to amount.
         let cookieOld = JSON.parse(Cookies.get('Cart'));
-        changeAmount(id, productAmount);
-        function changeAmount(id, productAmount) {
-          for (var i in cookieOld) {
-            if (cookieOld[i].id == id) {
-              cookieOld[i].productAmount =
-                cookieOld[i].productAmount + productAmount * 1;
-              break;
-            }
-          }
-        }
+        changeAmount(id, productAmount, cookieOld);
+
         document.cookie = 'Cart=' + JSON.stringify(cookieOld) + '; path=/';
       } else {
         let cookieOld = JSON.parse(Cookies.get('Cart'));
@@ -80,8 +100,7 @@ export default function Product() {
     }
 
     Router.push({
-      pathname: '/cart',
-      query: { name: 'cart' }
+      pathname: '/cart'
     });
 
     /*  redirect();
@@ -97,15 +116,15 @@ export default function Product() {
       <br />
 
       <div>
-        <h2> {myProduct.productName}</h2>
+        <h2> {props.product.productname}</h2>
         <div>
           {' '}
-          {myProduct.unit} {myProduct.measure} - {myProduct.price} €
+          {props.product.unit} {props.product.measure} - {props.product.price} €
         </div>
         <br />
-        <img src={myProduct.img} width="250px"></img>
-        <p>{myProduct.infoShort}</p>
-        <p>{myProduct.infoLong}</p>
+        <img src={props.product.img} width="250px"></img>
+        <p>{props.product.infoshort}</p>
+        <p>{props.product.infolong}</p>
         <br />
       </div>
       <div>
@@ -126,6 +145,19 @@ export default function Product() {
   );
 }
 
-Product.getInitialProps = async () => {
-  return {};
+Product.getInitialProps = async ({ query }) => {
+  console.log(query);
+  const response = await fetch(`http://localhost:3000/api`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json; charset=utf-8'
+    },
+    body: JSON.stringify({
+      productname: query.productname
+    })
+  });
+
+  const data = await response.json();
+
+  return { product: data.rows[0] };
 };
