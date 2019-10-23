@@ -6,7 +6,13 @@ import { setConfig } from 'react-hot-loader';
 setConfig({ pureSFC: true });
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  const { productname, results: results, incart: incart } = req.body;
+  const {
+    productname,
+    results: results,
+    incart,
+    listOfIds,
+    rankingNow
+  } = req.body;
   const pool = createPool(config.POSTGRES_CONNECTION_STRING);
   try {
     await pool.connect(async connection => {
@@ -25,9 +31,17 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       } else if (incart) {
         console.log('CART GEHT');
         console.log(req.body);
-        console.log(sql`SELECT * FROM product WHERE id IN ${incart}`);
+
         result = await connection.query(
-          sql`SELECT * FROM product WHERE id IN ${incart}`
+          sql`SELECT * FROM product WHERE id IN (${sql.join(
+            listOfIds,
+            sql`, `
+          )})`
+        );
+      } else if (rankingNow) {
+        console.log('RANKING DATA');
+        result = await connection.query(
+          sql`select * from product order by rating desc offset 0 fetch first 3 rows only`
         );
       } else if (!productname) {
         console.log('ALLES ANZEIGEN');

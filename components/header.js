@@ -6,8 +6,6 @@ const ContainerHeader = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  grid-column: 1 / 4;
-  grid-row: 2;
   align-items: center;
 `;
 const TitelBox = styled.div`
@@ -32,7 +30,6 @@ export default function Header() {
     <>
       <ContainerHeader>
         <TitelBox>
-          <img></img>
           <HeaderTitel>ErnteDank regionale Produkte</HeaderTitel>
         </TitelBox>
       </ContainerHeader>

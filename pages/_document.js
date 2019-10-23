@@ -33,6 +33,11 @@ const StyledNav = styled(Nav)`
   grid-row: 3;
 `;
 
+const StyledMain = styled(Main)`
+  grid-column: 2;
+  grid-row: 4;
+`;
+
 export default class MyDocument extends Document {
   static getInitialProps({ renderPage }) {
     // Step 1: Create an instance of ServerStyleSheet
@@ -62,7 +67,7 @@ export default class MyDocument extends Document {
           <StyledHeader />
 
           <StyledSearch />
-          <Main />
+          <StyledMain />
           <NextScript />
         </Body>
       </html>
