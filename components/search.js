@@ -22,9 +22,9 @@ const Productlink = styled.a`
 `;
 
 const SearchContainer = styled.div`
-  grid-column: 2;
-  grid-row: 3;
-  align-items: center;
+  left: 45%;
+  position: fixed;
+  top: 170px;
 `;
 
 const Search = () => {
@@ -35,10 +35,6 @@ const Search = () => {
   };
 
   let [count, setCount] = useState(1);
-
-  function increment() {
-    setCount(count + 1);
-  }
 
   // const onSubmitHandler = event => {
   //   event.preventDefault();
@@ -59,8 +55,6 @@ const Search = () => {
 
             <input type="submit" value="Search" />
           </form>
-          <button onClick={increment}>+</button>
-          {count}
         </div>
         <br />
       </div>

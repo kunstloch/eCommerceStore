@@ -1,5 +1,14 @@
 import React from 'react';
 import Link from 'next/link';
+import styled from 'styled-components';
+
+const Navi = styled.nav`
+  color: #523924;
+  top: 30px;
+  position: fixed;
+  right: 20px;
+  list-style-type: none;
+`;
 
 const links = [
   { href: '/', label: 'Home' },
@@ -10,7 +19,7 @@ const links = [
 });
 
 const Nav = () => (
-  <nav>
+  <Navi>
     <ul>
       {links.map(({ key, href, label }) => (
         <li key={key}>
@@ -45,7 +54,7 @@ const Nav = () => (
         font-size: 13px;
       }
     `}</style>
-  </nav>
+  </Navi>
 );
 
 export default Nav;

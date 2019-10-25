@@ -41,7 +41,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       } else if (rankingNow) {
         console.log('RANKING DATA');
         result = await connection.query(
-          sql`select * from product order by rating desc offset 0 fetch first 3 rows only`
+          sql`select * from product order by ${rankingNow} desc offset 0 fetch first 3 rows only`
         );
       } else if (!productname) {
         console.log('ALLES ANZEIGEN');

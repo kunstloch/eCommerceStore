@@ -38,10 +38,14 @@ const Productlink = styled.a`
   }
 `;
 
-const Main = styled.div`
+const MainList = styled.div`
   grid-column: 2;
   grid-row: 4;
   align-items: center;
+`;
+
+const Main = styled.div`
+  margin-top: 300px;
 `;
 
 const ListUl = styled.ul`
@@ -74,16 +78,16 @@ const Results = (props: Props) => {
   ));
 
   return (
-    <>
-      <Main>
+    <Main>
+      <MainList>
         <ListUl>{mapSearchArray}</ListUl>
-      </Main>
+      </MainList>
 
       <br />
       <br />
       <br />
       <hr />
-    </>
+    </Main>
   );
 };
 

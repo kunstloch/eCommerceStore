@@ -2,18 +2,10 @@ import React from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
 
-const ContainerHeader = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-`;
-const TitelBox = styled.div`
-  width: 100%;
-  background-color: #eedca8;
-  height: 210px;
-  background-image: url('/static/ErnteDankBG01.png');
-  background-size: 125%;
+const ContainerHeader = styled.header`
+  /* background-image: url('/static/ErnteDankBG01.png');
+  background-color: #eedca8; */
+  position: fixed;
 `;
 
 const HeaderTitel = styled.h1`
@@ -23,17 +15,44 @@ const HeaderTitel = styled.h1`
   padding: 0px;
   align-items: center;
   justify-content: center;
+  margin: 0;
+`;
+
+const HeaderImg = styled.img`
+  position: fixed;
+  background-color: white;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: auto;
+  top: 0px;
+`;
+
+const Logo = styled.img`
+  position: fixed;
+  z-index: 5;
+  left: 45%;
+`;
+
+const Lefth1 = styled.h1`
+  position: fixed;
+  z-index: 5;
+  left: 17%;
+  top: 3px;
+  font-size: 12vh;
+`;
+const Right1 = styled.h1`
+  position: fixed;
+  z-index: 5;
+  left: 58%;
+  top: 3px;
+  font-size: 12vh;
 `;
 
 export default function Header() {
   return (
-    <>
-      <ContainerHeader>
-        <TitelBox>
-          <HeaderTitel>ErnteDank regionale Produkte</HeaderTitel>
-        </TitelBox>
-      </ContainerHeader>
-      <br />
-    </>
+    <ContainerHeader>
+      <HeaderImg src="/static/LOGOgesamt.png" alt="Logo" height="150px" />
+    </ContainerHeader>
   );
 }

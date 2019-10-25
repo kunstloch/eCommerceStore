@@ -25,6 +25,22 @@ const Productlink = styled.a`
   }
 `;
 
+const Main = styled.div`
+  margin-top: 300px;
+`;
+
+const CartLogo = styled.img`
+  margin: 20px;
+`;
+
+const DivH2 = styled.div`
+  display: flex;
+`;
+
+const TitelH2 = styled.h2`
+  margin-top: 45px;
+`;
+
 const allproducts = getAllProducts();
 
 export default function Cart(props) {
@@ -74,37 +90,76 @@ export default function Cart(props) {
   Cookies.set('Sum', totalCookie);
 
   // Map Array
-  const mapAllProductsInCart = newAllProductsInCart.map((product, id) => (
-    <>
-      <Productlink href={'/products/' + product.productname}>
-        <br />
-        <br />
-        <li>
-          <img src={product.img} width="250px" />
-          <br />
-          Amount: {product.productAmount} - {product.productname} - Price per
-          Unit: {product.price} EUR - Price: {product.totalPrice} EUR
-        </li>
-      </Productlink>
-      <input type="number" min="0" max="50" />
+  const mapAllProductsInCart = newAllProductsInCart.map((product, key) => {
+    const test = 'Test';
+    console.log(test);
+    const [amountOfProducts, setAmountofProducts] = useState(
+      product.productAmount
+    );
+    const handleInputChange = e => {
+      setAmountofProducts(e.target.value);
+    };
 
-      <br />
-      <br />
-    </>
-  ));
+    function handleClick() {
+      let cookieParsed = JSON.parse(Cookies.get('Cart'));
+      console.log('Cookie Parsed ', cookieParsed);
+      cookieParsed[key].productAmount = amountOfProducts * 1;
+      let newCookieToSet = 'Cart=' + JSON.stringify(cookieParsed) + '; path=/';
+      document.cookie = newCookieToSet;
+    }
+
+    return (
+      <>
+        <Productlink href={'/products/' + product.productname}>
+          <br />
+          <br />
+          <li>
+            <img src={product.img} width="250px" />
+            <br />
+            Amount: {product.productAmount} - {product.productname} - Price per
+            Unit: {product.price} EUR - Price: {product.totalPrice} EUR
+          </li>
+        </Productlink>
+        <form onClick={handleClick}>
+          Menge ändern:
+          <input
+            type="number"
+            min="0"
+            max="50"
+            onChange={handleInputChange}
+            value={amountOfProducts}
+          />{' '}
+          <button>Apply Change</button>
+        </form>
+
+        <br />
+        <br />
+      </>
+    );
+  });
 
   // const productsInCart = Cookies.get('Cart', { path: '/products' });
   //console.log(productsInCart);
   //const ProductsInCartArray = JSON.parse(productsInCart);
 
   return (
-    <>
+    <Main>
+      <DivH2>
+        <CartLogo
+          src="/static/CartSymbolBetter.png"
+          alt="Cart Symbol"
+          width="70px"
+        />
+        <TitelH2>Your Products in Cart</TitelH2>
+      </DivH2>
+      <br />
+      <br />
       <div>{mapAllProductsInCart}</div>
       <div>WICHTIG!!! </div>
       <div>Total: {totalPriceAllProducts} EUR </div>
       <div>Total Amount of Products: {totalAmountAllProducts}</div>
       <div></div>
-    </>
+    </Main>
   );
 }
 

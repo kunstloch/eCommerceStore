@@ -12,6 +12,10 @@ import styled from 'styled-components';
 import { setConfig } from 'react-hot-loader';
 setConfig({ pureSFC: true });
 
+const Main = styled.div`
+  margin-top: 300px;
+`;
+
 type Props = {
   data: {
     rows: Array<{
@@ -71,7 +75,7 @@ const WithInitialProps: NextPage<Props> = ({ data }) => {
     </Productlink>
   ));
   return (
-    <>
+    <Main>
       <h1>PRODUCT LIST</h1>
 
       <p>
@@ -82,7 +86,7 @@ const WithInitialProps: NextPage<Props> = ({ data }) => {
       <p>NASE! NASE! </p>
       <ListUl>{productObject}</ListUl>
       <div style={{ wordBreak: 'break-all' }}>{JSON.stringify(data)}</div>
-    </>
+    </Main>
   );
 };
 

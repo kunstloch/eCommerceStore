@@ -11,31 +11,23 @@ const Body = styled.body`
   color: #523924;
   font-family: 'Noto Sans', sans-serif;
 
-  display: grid;
+  /* display: grid;
   grid-gap: 10px;
   grid-template-columns: 33% 33% 33%;
-  grid-template-rows: 100px 200px 100px 500px auto;
+  grid-template-rows: 100px 200px 100px 500px auto; */
 `;
 
-const StyledHeader = styled(Header)`
-  grid-column: 1 / 3;
-  grid-row: 2;
-  display: flex;
-  flex-direction: row;
-  background-image: url('/static/ErnteDankBG.png');
-`;
 const StyledSearch = styled(Search)`
-  grid-column: 3;
-  grid-row: 2;
+  /* grid-column: 3;
+  grid-row: 2; */
 `;
 const StyledNav = styled(Nav)`
-  grid-column: 1;
-  grid-row: 3;
+  /* grid-column: 1;
+  grid-row: 3; */
 `;
 
 const StyledMain = styled(Main)`
-  grid-column: 2;
-  grid-row: 4;
+  margin-top: 200px;
 `;
 
 export default class MyDocument extends Document {
@@ -63,8 +55,8 @@ export default class MyDocument extends Document {
           {this.props.styleTags}
         </Head>
         <Body>
+          <Header />
           <StyledNav />
-          <StyledHeader />
 
           <StyledSearch />
           <StyledMain />
