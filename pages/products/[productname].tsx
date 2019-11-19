@@ -14,15 +14,15 @@ const Main = styled.div`
 
 type Props = {
   product: {
-    id: Number;
-    productname: String;
-    price: Number;
+    id: number;
+    productname: string;
+    price: number;
     img: string;
-    key: Number;
-    unit: Number;
-    infoshort: String;
-    infolong: String;
-    measure: String;
+    key: number;
+    unit: number;
+    infoshort: string;
+    infolong: string;
+    measure: string;
   };
 };
 
@@ -46,14 +46,14 @@ export default function Product(props: Props) {
   if (!props.product) return <div>Product not found.</div>;
 
   const [productAmount, setProductAmount] = useState(1);
-  const handleAmountInputChanges = event => {
-    setProductAmount(event.target.value);
+  const handleAmountInputChanges = e => {
+    setProductAmount(e.target.value);
   };
   const id = props.product.id;
 
   // * 1 to covert Strint to Number. Better way?
 
-  const sendCookies = event => {
+  const sendCookies = e => {
     const productWithAmount = [
       {
         id: id,
