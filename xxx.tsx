@@ -1,9 +1,4 @@
 import React, { useState, Component } from 'react';
-import getAllProducts from '../../data';
-import { useRouter } from 'next/router';
-import nextCookie from 'next-cookies';
-import Cookies from 'js-cookie';
-import Router from 'next/router';
 import { NextPage } from 'next';
 import Link from 'next/link';
 import fetch from 'cross-fetch';

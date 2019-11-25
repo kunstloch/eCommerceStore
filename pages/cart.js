@@ -1,45 +1,141 @@
 import React, { useState, Component } from 'react';
-import Nav from '../components/nav';
-import Header from '../components/header';
+
 import getAllProducts from '../data';
 import { useRouter } from 'next/router';
 import nextCookie from 'next-cookies';
 import Cookies from 'js-cookie';
-import Search from '../components/search';
+
 import fetch from 'cross-fetch';
 import styled from 'styled-components';
+
+// const Productlink = styled.a`
+//   text-decoration: none;
+//   color: #8c8084;
+
+//   sty & * {
+//     text-decoration: none;
+//   }
+
+//   & *:hover {
+//     background-color: #8c8084;
+//     color: #eedca8;
+//     cursor: pointer;
+//     text-decoration: none;
+//   }
+// `;
+
+// ****** NEW ********
 
 const Productlink = styled.a`
   text-decoration: none;
   color: #8c8084;
+  margin: 2px 12px;
+  padding: 2px 22px;
 
-  sty & * {
+  sty & ul {
     text-decoration: none;
+    list-style-image: none;
   }
 
-  & *:hover {
-    background-color: #8c8084;
-    color: #eedca8;
+  & :hover {
+    border: 1px solid #523924;
+    border-radius: 15px;
     cursor: pointer;
     text-decoration: none;
+    padding: 0px 20px;
   }
 `;
 
+const H1 = styled.h1`
+  /* position: fixed;
+  font-size: 10vw; */
+  color: #523924;
+  text-align: left;
+`;
+
+const H3 = styled.h3``;
+
 const Main = styled.div`
-  margin-top: 300px;
+  margin-top: 30px;
+  margin-left: 30px;
+`;
+
+const ListUl = styled.ul`
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 5px;
+  grid-row-gap: 70px;
+  margin-bottom: 70px;
+  margin-top: 70px;
+`;
+
+const ProductList = styled.div`
+  grid-column: 2;
+  grid-row: 4;
+  align-items: center;
+`;
+
+const ProductName = styled.h2`
+  padding: 3px;
+  margin: 3px;
+`;
+
+const ProduktLi = styled.li`
+  padding: 3px;
+  margin: 3px;
+`;
+
+const ProductContainer = styled.div`
+  margin: 20px;
+`;
+
+const HR = styled.hr`
+  margin: 20px 40px 20px 20px;
+  border-top: 3px dotted #523924;
+`;
+
+const NextProducts = styled.div`
+  bottom: 0;
+`;
+
+const Span = styled.span`
+  display: block;
+`;
+
+// ****** OLD ********
+
+const InfoLong = styled.div`
+  align-self: top;
+  margin: 10px 10px 0 10px;
+  font-size: 14px;
+  text-align: justify;
+`;
+
+const Form = styled.div`
+  align-self: end;
+  margin-bottom: 20px;
+  text-align: left;
 `;
 
 const CartLogo = styled.img`
-  margin: 20px;
+  margin: 10px;
 `;
 
 const DivH2 = styled.div`
   display: flex;
 `;
 
-const TitelH2 = styled.h2`
-  margin-top: 45px;
+const Waren = styled.p`
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
 `;
+
+// const TitelH2 = styled.h2`
+//   margin-top: 45px;
+// `;
 
 const allproducts = getAllProducts();
 
@@ -91,8 +187,6 @@ export default function Cart(props) {
 
   // Map Array
   const mapAllProductsInCart = newAllProductsInCart.map((product, key) => {
-    const test = 'Test';
-    console.log(test);
     const [amountOfProducts, setAmountofProducts] = useState(
       product.productAmount
     );
@@ -110,30 +204,40 @@ export default function Cart(props) {
 
     return (
       <>
+        <InfoLong>
+          <h3>Produkt Information:</h3>
+          <p>{product.infolong}</p>
+        </InfoLong>
+
         <Productlink href={'/products/' + product.productname}>
-          <br />
-          <br />
           <li>
-            <img src={product.img} width="250px" />
+            <ProductName> {product.productname}</ProductName>
+            <img src={product.img} width="90%" />
             <br />
-            Amount: {product.productAmount} - {product.productname} - Price per
-            Unit: {product.price} EUR - Price: {product.totalPrice} EUR
+            <br />
+            Pro Einheit: {product.unit} {product.measure}
+            <Span />
           </li>
         </Productlink>
-        <form onClick={handleClick}>
-          Menge ändern:
-          <input
-            type="number"
-            min="0"
-            max="50"
-            onChange={handleInputChange}
-            value={amountOfProducts}
-          />{' '}
-          <button>Apply Change</button>
-        </form>
-
-        <br />
-        <br />
+        <Form>
+          Preis pro Einheit: {product.price} EUR
+          <br />
+          Im Einkaufswagen: {product.productAmount}
+          <br /> Gesamtpreis: {product.totalPrice} EUR
+          <br />
+          <br />
+          <form onClick={handleClick}>
+            Menge ändern:{` `}
+            <input
+              type="number"
+              min="0"
+              max="50"
+              onChange={handleInputChange}
+              value={amountOfProducts}
+            />{' '}
+            <button>Ändern</button>
+          </form>
+        </Form>
       </>
     );
   });
@@ -150,15 +254,25 @@ export default function Cart(props) {
           alt="Cart Symbol"
           width="70px"
         />
-        <TitelH2>Your Products in Cart</TitelH2>
+        <H1>Produkte im Einkaufswagen</H1>
       </DivH2>
       <br />
-      <br />
-      <div>{mapAllProductsInCart}</div>
-      <div>WICHTIG!!! </div>
-      <div>Total: {totalPriceAllProducts} EUR </div>
-      <div>Total Amount of Products: {totalAmountAllProducts}</div>
-      <div></div>
+      <HR />
+      <div>
+        <Waren>Waren im Warenkorb: {totalAmountAllProducts} Stück</Waren>
+        <Waren>Gesamtbetrag: {totalPriceAllProducts} EUR </Waren>
+      </div>
+      <HR />
+      <ProductContainer>
+        <ListUl>{mapAllProductsInCart}</ListUl>
+      </ProductContainer>
+
+      <HR />
+      <div>
+        <Waren>Waren im Warenkorb: {totalAmountAllProducts} Stück</Waren>
+        <Waren>Gesamtbetrag: {totalPriceAllProducts} EUR </Waren>
+      </div>
+      <HR />
     </Main>
   );
 }

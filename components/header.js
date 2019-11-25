@@ -1,58 +1,70 @@
 import React from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
+import Search from './search';
+import Nav from './nav';
 
 const ContainerHeader = styled.header`
-  /* background-image: url('/static/ErnteDankBG01.png');
-  background-color: #eedca8; */
+  width: 100%;
+  left: 0px;
+  z-index: 10;
+`;
+
+const Fixed = styled.div`
+  position: fixed;
+  width: 100%;
+`;
+
+const Container = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+  background-color: #dfa365;
+  border-bottom: 5px solid white;
+`;
+
+const StyledSearch = styled(Search)`
+  position: fixed;
+`;
+const StyledNav = styled(Nav)`
   position: fixed;
 `;
 
-const HeaderTitel = styled.h1`
+const H1 = styled.h1`
+  /* position: fixed;
+  font-size: 10vw; */
   color: #523924;
-  float: inline-start;
-  background-color: #eedca8;
-  padding: 0px;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
+  font-size: 2.4vw;
+  padding: 10px 0;
 `;
 
 const HeaderImg = styled.img`
-  position: fixed;
   background-color: white;
   padding: 0;
   margin: 0;
   width: 100%;
   height: auto;
-  top: 0px;
-`;
-
-const Logo = styled.img`
-  position: fixed;
-  z-index: 5;
-  left: 45%;
-`;
-
-const Lefth1 = styled.h1`
-  position: fixed;
-  z-index: 5;
-  left: 17%;
-  top: 3px;
-  font-size: 12vh;
-`;
-const Right1 = styled.h1`
-  position: fixed;
-  z-index: 5;
-  left: 58%;
-  top: 3px;
-  font-size: 12vh;
+  margin-top: 120px;
+  border-bottom: 3px solid #523924;
 `;
 
 export default function Header() {
   return (
-    <ContainerHeader>
-      <HeaderImg src="/static/LOGOgesamt.png" alt="Logo" height="150px" />
+    <ContainerHeader className="headerStyle">
+      <Fixed>
+        <Container>
+          <StyledSearch />
+          <H1>ErnteDank - Ecommerce Store</H1>
+          <StyledNav />
+        </Container>
+      </Fixed>
+      <Link href="/">
+        <a>
+          <HeaderImg src="/static/LOGOgesamt.png" alt="Logo" height="150px" />
+        </a>
+      </Link>
     </ContainerHeader>
   );
 }

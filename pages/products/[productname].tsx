@@ -1,15 +1,85 @@
 import React, { useState, Component } from 'react';
-import getAllProducts from '../../data';
+
 import { useRouter } from 'next/router';
 import nextCookie from 'next-cookies';
 import Cookies from 'js-cookie';
 import Router from 'next/router';
-import Nav from '../../components/nav';
+
 import fetch from 'cross-fetch';
 import styled from 'styled-components';
 
+const ListUl = styled.ul`
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 5px;
+  grid-row-gap: 70px;
+  margin-bottom: 70px;
+  margin-top: 70px;
+`;
+
+const H1 = styled.h1`
+  /* position: fixed;
+  font-size: 10vw; */
+  color: #523924;
+  text-align: left;
+  margin: 40px 20px 10px 20px;
+`;
+
+const ProductName = styled.h2`
+  padding: 3px;
+  margin: 3px;
+`;
+
+const ProductContainer = styled.div`
+  margin: 20px;
+`;
+
+const Span = styled.span`
+  display: block;
+`;
+
+const HR = styled.hr`
+  margin: 20px 40px 20px 20px;
+  border-top: 3px dotted #523924;
+`;
+
+const InfoLong = styled.div`
+  align-self: top;
+  margin: 10px 10px 0 10px;
+  font-size: 14px;
+  text-align: justify;
+`;
+
+const Form = styled.div`
+  align-self: end;
+  margin-bottom: 20px;
+  text-align: left;
+`;
+
+const DivH2 = styled.div`
+  display: flex;
+`;
+
+const Waren = styled.p`
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+`;
+
+const Productlink = styled.div`
+  text-decoration: none;
+  color: #8c8084;
+  margin: 2px 12px;
+  padding: 2px 22px;
+  align-self: center;
+`;
+
+// ************** old *************
+
 const Main = styled.div`
-  margin-top: 300px;
+  margin-top: 30px;
 `;
 
 type Props = {
@@ -99,12 +169,54 @@ export default function Product(props: Props) {
     }*/
   };
 
+  const product = props.product;
+
   return (
     <Main>
-      <h1>PRODUCT</h1>
+      <H1>Produkt Detailansicht</H1>
       <br />
+      <HR />
 
-      <div>
+      <ListUl>
+        <InfoLong>
+          <h3>Produkt Information:</h3>
+          <p>{product.infolong}</p>
+        </InfoLong>
+
+        <Productlink>
+          <li>
+            <ProductName> {product.productname}</ProductName>
+            <img src={product.img} width="90%" />
+            <br />
+          </li>
+        </Productlink>
+
+        <Form>
+          <div>
+            <p>
+              Mengenangabe pro Einheit: {product.unit} {product.measure} <br />
+              Preis pro Einheit: {product.price} EUR
+              <br />
+              Preis für ausgewählte Einheit: {product.price * productAmount} EUR
+            </p>
+          </div>
+
+          <br />
+          <br />
+          <input
+            id="chart"
+            type="number"
+            min="1"
+            max="50"
+            step="1"
+            value={productAmount}
+            onChange={handleAmountInputChanges}
+          />
+          <button onClick={sendCookies}>Put in Cart</button>
+        </Form>
+      </ListUl>
+
+      {/* <div>
         <h2> {props.product.productname}</h2>
         <div>
           {' '}
@@ -129,7 +241,7 @@ export default function Product(props: Props) {
         <button onClick={sendCookies}>Put in Cart</button>
         <p>productAmount: {productAmount}</p>
         <p>Mein Cookie: {Cookies.get('Cart')}</p>
-      </div>
+      </div> */}
     </Main>
   );
 }

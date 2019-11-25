@@ -1,30 +1,31 @@
 import React, { useState, Component } from 'react';
 import styled from 'styled-components';
 import getAllProducts from '../data';
-import { useRouter } from 'next/router';
-import Link from 'next/link';
-import Cartbox from './cartbox';
-import Nav from './nav';
-import Header from './header';
-
-const allproducts = getAllProducts();
-const Productlink = styled.a`
-  max-width: 150px;
-
-  & * {
-    max-width: 150px;
-  }
-
-  & *:hover {
-    background-color: gray;
-    cursor: pointer;
-  }
-`;
 
 const SearchContainer = styled.div`
-  left: 45%;
-  position: fixed;
-  top: 170px;
+  margin-left: 15px;
+`;
+
+const Input = styled.input`
+  font-size: 14px;
+  text-align: center;
+  background-color: #fbf1e8;
+  padding: 6px 5px 5px 5px;
+  margin: 10px 0px 8px 0px;
+  border-radius: 10px 0 0 10px;
+  border: none;
+  box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.38);
+`;
+
+const Button = styled.button`
+  font-size: 14px;
+  text-align: center;
+  background-color: aliceblue;
+  padding: 6px 5px 5px 5px;
+  margin: 10px 0px 8px 0px;
+  border-radius: 0 10px 10px 0;
+  border: none;
+  box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.38);
 `;
 
 const Search = () => {
@@ -45,21 +46,17 @@ const Search = () => {
   return (
     <SearchContainer>
       <div>
-        <div>
-          <form action="/results">
-            <input
-              name="results"
-              value={searchValue}
-              onChange={handleSearchInputChanges}
-            />
+        <form action="/results">
+          <Input
+            name="results"
+            placeholder="Nach Produkt suchen"
+            value={searchValue}
+            onChange={handleSearchInputChanges}
+          />
 
-            <input type="submit" value="Search" />
-          </form>
-        </div>
-        <br />
+          <Button>Suche</Button>
+        </form>
       </div>
-
-      <br />
     </SearchContainer>
   );
 };
