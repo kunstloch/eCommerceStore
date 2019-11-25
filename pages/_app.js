@@ -19,6 +19,10 @@ const Body = styled.body`
   grid-template-rows: 100px 200px 100px 500px auto; */
 `;
 
+const Border = styled.div`
+  margin-top: 230px;
+`;
+
 class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props;
@@ -42,7 +46,7 @@ class MyApp extends App {
         </head>
         <Body>
           <Header />
-
+          <Border />
           <Component {...pageProps} />
         </Body>
         <Footer>Impressum</Footer>
