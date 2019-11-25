@@ -56,7 +56,7 @@ export default function Header() {
       <Fixed>
         <Container>
           <StyledSearch />
-          <H1>ErnteDank - Ecommerce Store</H1>
+          <H1>ErnteDank - eCommerce Store</H1>
           <StyledNav />
         </Container>
       </Fixed>
