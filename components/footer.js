@@ -7,7 +7,7 @@ const FooterContainer = styled.footer`
   border-top: 5px solid white;
   padding: 40px 0px;
   width: 100%;
-  margin-top: 50px;
+  margin-top: 110px;
 
   div {
     text-align: right;
