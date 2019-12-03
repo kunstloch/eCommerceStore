@@ -67,7 +67,7 @@ const SearchResults = () => {
           <button onClick={increment}>+</button>
           {count}
 
-          <p>{console.log('searchArray ', searchArray)}</p>
+          {/* <p>{console.log('searchArray ', searchArray)}</p> */}
 
           <ul>{mapSearchArray}</ul>
         </div>

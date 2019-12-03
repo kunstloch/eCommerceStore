@@ -25,7 +25,10 @@ export default function Footer() {
   return (
     <FooterContainer>
       <div>
-        <p>ECOMMERCE-SHOP PROJEKT - Next.js, TypeScript, PostgreSQL</p>
+        <p>
+          ECOMMERCE-SHOP PROJECT - Next.js, TypeScript, PostgreSQL, and my first
+          cookies :-)
+        </p>
         Impressum: Alexander Scherer-Sokolowski | Tel: +43 664 7501 8228 <br />
         Schulstrasse 1 - 7304 Grosswarasdorf - Österreich
         <p>

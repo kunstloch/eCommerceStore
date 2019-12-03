@@ -48,7 +48,7 @@ const ListUl = styled.ul`
 `;
 
 const WithInitialProps: NextPage<Props> = ({ data }) => {
-  console.log(data.rows);
+  // console.log(data.rows);
   const productObject = data.rows.map(product => (
     <Productlink href={'/products/' + product.productname}>
       <li key="id">
@@ -97,7 +97,7 @@ WithInitialProps.getInitialProps = async ({ query }) => {
   });
 
   const data = await response.json();
-  console.log('DATA: ' + data);
+  // console.log('DATA: ' + data);
   return { data };
 };
 

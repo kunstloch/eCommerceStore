@@ -4,10 +4,10 @@ import nextCookie from 'next-cookies';
 import Cookies from 'js-cookie';
 
 export default function Cartbox(props) {
-  console.log(props.cookies.Sum);
+  // console.log(props.cookies.Sum);
   const totalInCart = props.cookies.Sum;
   const totalInCartObject = JSON.parse(totalInCart);
-  console.log(totalInCartObject);
+  // console.log(totalInCartObject);
 
   return (
     <>
@@ -20,7 +20,7 @@ export default function Cartbox(props) {
 }
 
 Cartbox.getInitialProps = async ctx => {
-  console.log(nextCookie(ctx));
+  // console.log(nextCookie(ctx));
 
   return { cookies: nextCookie(ctx) };
 };

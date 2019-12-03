@@ -176,7 +176,7 @@ const Results = (props: Props) => {
 export default Results;
 
 Results.getInitialProps = async ({ query }) => {
-  console.log(query);
+  // console.log(query);
   const response = await fetch(`http://localhost:3000/api`, {
     method: 'POST',
     headers: {
@@ -188,6 +188,6 @@ Results.getInitialProps = async ({ query }) => {
   });
 
   const data = await response.json();
-  console.log(data.rows);
+  // console.log(data.rows);
   return { searchArray: data.rows };
 };

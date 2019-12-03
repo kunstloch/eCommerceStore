@@ -122,7 +122,7 @@ type Props = {
 };
 
 const Home = (props: Props) => {
-  console.log(props);
+  // console.log(props);
   const [selection, setSelection] = useState('rating');
 
   const productObject = props.product.map(product => (
@@ -230,7 +230,7 @@ const Home = (props: Props) => {
 };
 
 Home.getInitialProps = async ({ selection }) => {
-  console.log('Products were sorted by: ', selection);
+  // console.log('Products were sorted by: ', selection);
   const response = await fetch(`http://localhost:3000/api`, {
     method: 'POST',
     headers: {

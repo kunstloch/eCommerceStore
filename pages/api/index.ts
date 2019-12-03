@@ -19,18 +19,18 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       let result;
 
       if (results) {
-        console.log('RESULTS GEHT');
-        console.log(
-          sql`select * FROM product WHERE productname LIKE ${results}%'`
-        );
+        // console.log('RESULTS GEHT');
+        // console.log(
+        //   sql`select * FROM product WHERE productname LIKE ${results}%'`
+        // );
         result = await connection.query(
           sql`select * FROM product WHERE productname LIKE ${'%' +
             results +
             '%'}`
         );
       } else if (incart) {
-        console.log('CART GEHT');
-        console.log(req.body);
+        // console.log('CART GEHT');
+        // console.log(req.body);
 
         result = await connection.query(
           sql`SELECT * FROM product WHERE id IN (${sql.join(
@@ -39,15 +39,15 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
           )})`
         );
       } else if (rankingNow) {
-        console.log('RANKING DATA');
+        // console.log('RANKING DATA');
         result = await connection.query(
           sql`select * from product order by ${rankingNow} desc offset 0 fetch first 3 rows only`
         );
       } else if (!productname) {
-        console.log('ALLES ANZEIGEN');
+        // console.log('ALLES ANZEIGEN');
         result = await connection.query(sql`SELECT * FROM product`);
       } else {
-        console.log('NUR EINES ANZEIGEN');
+        // console.log('NUR EINES ANZEIGEN');
         result = await connection.query(
           sql`SELECT * FROM product WHERE productname = ${productname}`
         );

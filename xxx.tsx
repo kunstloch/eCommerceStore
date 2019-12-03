@@ -41,7 +41,7 @@ const ListUl = styled.ul`
 `;
 
 const WithInitialProps: NextPage<Props> = ({ data }) => {
-  console.log(data.rows);
+  // console.log(data.rows);
   const productObject = data.rows.map(product => (
     <Productlink href={'/products/productname=' + product.productname}>
       <li key="id">
