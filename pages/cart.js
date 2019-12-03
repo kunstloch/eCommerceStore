@@ -133,6 +133,10 @@ const Waren = styled.p`
   margin: 0;
 `;
 
+const IMG = styled.img`
+  box-shadow: 22px 22px 52px -21px rgba(0, 0, 0, 0.39);
+`;
+
 // const TitelH2 = styled.h2`
 //   margin-top: 45px;
 // `;
@@ -212,7 +216,7 @@ export default function Cart(props) {
         <Productlink href={'/products/' + product.productname}>
           <li>
             <ProductName> {product.productname}</ProductName>
-            <img src={product.img} width="90%" />
+            <IMG src={product.img} width="90%" />
             <br />
             <br />
             Pro Einheit: {product.unit} {product.measure}

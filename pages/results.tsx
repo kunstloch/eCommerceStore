@@ -49,6 +49,10 @@ const Main = styled.div`
   margin-left: 30px;
 `;
 
+const IMG = styled.img`
+  box-shadow: 22px 22px 52px -21px rgba(0, 0, 0, 0.39);
+`;
+
 const HR = styled.hr`
   margin: 20px 40px 20px 20px;
   border-top: 3px dotted #523924;
@@ -126,7 +130,7 @@ const Results = (props: Props) => {
             {product.unit} {product.measure} - {product.price} €
           </div>
           <br />
-          <img src={product.img} width="250px" />
+          <IMG src={product.img} width="250px" />
           <p>{product.infoshort}</p>
 
           <br />

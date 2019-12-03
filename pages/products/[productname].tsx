@@ -76,6 +76,10 @@ const Productlink = styled.div`
   align-self: center;
 `;
 
+const IMG = styled.img`
+  box-shadow: 22px 22px 52px -21px rgba(0, 0, 0, 0.39);
+`;
+
 // ************** old *************
 
 const Main = styled.div`
@@ -186,7 +190,7 @@ export default function Product(props: Props) {
         <Productlink>
           <li>
             <ProductName> {product.productname}</ProductName>
-            <img src={product.img} width="90%" />
+            <IMG src={product.img} width="90%" />
             <br />
           </li>
         </Productlink>

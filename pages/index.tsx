@@ -59,7 +59,8 @@ const Next = styled.button`
   font-weight: 700;
   border-radius: 7px;
   font-size: 20px;
-  left: 100px;
+  float: right;
+  right: 150px;
 `;
 
 const ListUl = styled.ul`
@@ -87,6 +88,10 @@ const ProductList = styled.div`
 const ProductName = styled.h2`
   padding: 3px;
   margin: 3px;
+`;
+
+const IMG = styled.img`
+  box-shadow: 22px 22px 52px -21px rgba(0, 0, 0, 0.39);
 `;
 
 const ProduktLi = styled.li`
@@ -132,7 +137,7 @@ const Home = (props: Props) => {
             {product.unit} {product.measure} - {product.price} €
           </div>
           <br />
-          <img src={product.img} width="250px" />
+          <IMG src={product.img} width="250px" />
           <p>{product.infoshort}</p>
 
           <br />

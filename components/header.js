@@ -6,21 +6,14 @@ import Nav from './nav';
 
 const ContainerHeader = styled.header`
   width: 100%;
-  left: 0px;
+
   z-index: 10;
   top: 0;
   position: fixed;
   margin: 0;
   padding: 0;
-`;
-
-const Fixed = styled.div`
-  position: fixed;
-  width: 100%;
   border-top: 5px solid #523924;
   border-bottom: 5px solid #523924;
-  margin: 0;
-  padding: 0;
 `;
 
 const Container = styled.div`
@@ -79,6 +72,7 @@ const Logo = styled.img`
   grid-column-end: 3;
   /* width: 90px; */
   border: 5px solid white;
+  box-shadow: 0px 5px 37px 0px rgba(0, 0, 0, 0.51);
 `;
 
 const HeaderImg = styled.img`
@@ -94,21 +88,20 @@ const HeaderImg = styled.img`
 export default function Header() {
   return (
     <ContainerHeader className="headerStyle">
-      <Fixed>
-        <Container>
-          <StyledSearch />
-          <NewContainer>
-            <H1Left>Regionale</H1Left>
-            <Link href="/">
-              <a>
-                <Logo src="/static/erntedank.PNG" alt="Logo" />
-              </a>
-            </Link>
-            <H1Right>Produkte</H1Right>
-          </NewContainer>
-          <StyledNav />
-        </Container>
-      </Fixed>
+      <Container>
+        <StyledSearch />
+        <NewContainer>
+          <H1Left>Regionale</H1Left>
+          <Link href="/">
+            <a>
+              <Logo src="/static/erntedank.PNG" alt="Logo" />
+            </a>
+          </Link>
+          <H1Right>Produkte</H1Right>
+        </NewContainer>
+        <StyledNav />
+      </Container>
+
       {/* <Link href="/">
         <a>
           <HeaderImg src="/static/logogesamt1.png" alt="Logo" height="150px" />
