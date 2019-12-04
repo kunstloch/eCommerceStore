@@ -30,9 +30,13 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         );
       } else if (incart) {
         // console.log('CART GEHT');
-        // console.log(req.body);
+        // console.log('LIST OF IDS', listOfIds);
+        // let stringListOfIds = '(' + listOfIds.join(' , ') + ')';
+        // console.log('stringListOfIds ', stringListOfIds);
 
+        // changed .list
         result = await connection.query(
+          //@ts-ignore
           sql`SELECT * FROM product WHERE id IN (${sql.join(
             listOfIds,
             sql`, `

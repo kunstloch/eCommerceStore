@@ -1053,6 +1053,14 @@
   resolved "https://registry.yarnpkg.com/@emotion/unitless/-/unitless-0.7.4.tgz#a87b4b04e5ae14a88d48ebef15015f6b7d1f5677"
   integrity sha512-kBa+cDHOR9jpRJ+kcGMsysrls0leukrm68DmFQoMIWQcXdr2cZvyvypWuGYT7U+9kAExUE7+T7r6G3C3A6L8MQ==
 
+"@heroku/buildpack-registry@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@heroku/buildpack-registry/-/buildpack-registry-1.0.1.tgz#5d7cc125cff5d984b88edcebc0e9dc0cc579f591"
+  integrity sha512-cbB6ND+unRk692jf1PctcoqnmuyifanTMtFStucXukkpyeI/QgXac5qJNb3g6yhHOObTghJBXi9Uzy1KBcnPgQ==
+  dependencies:
+    node-fetch "^2.2.0"
+    "true-myth" "^2.0.0"
+
 "@jest/console@^24.7.1", "@jest/console@^24.9.0":
   version "24.9.0"
   resolved "https://registry.yarnpkg.com/@jest/console/-/console-24.9.0.tgz#79b1bc06fb74a8cfb01cbdedf945584b1b9707f0"
@@ -3669,6 +3677,11 @@ hash.js@^1.0.0, hash.js@^1.0.3:
     inherits "^2.0.3"
     minimalistic-assert "^1.0.1"
 
+heroku-nodejs-build@^10.15.3:
+  version "10.15.3"
+  resolved "https://registry.yarnpkg.com/heroku-nodejs-build/-/heroku-nodejs-build-10.15.3.tgz#48d1c4c8ce56b32cbdb5b9120314f1001a675f62"
+  integrity sha512-fdPh8MKi5e4ATNOcRjxIDH/WWsWJN5owTH5FobdHc0XLssVvZX7C/jkREyzDETQilLPInmcjirtiGDU4wznVBw==
+
 hmac-drbg@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/hmac-drbg/-/hmac-drbg-1.0.1.tgz#d2745701025a6c775a6c545793ed502fc0c649a1"
@@ -5228,7 +5241,7 @@ nice-try@^1.0.4:
   resolved "https://registry.yarnpkg.com/nice-try/-/nice-try-1.0.5.tgz#a3378a7696ce7d223e88fc9b764bd7ef1089e366"
   integrity sha512-1nh45deeb5olNY7eX82BkPO7SSxR5SSYJiPTrTdFUVYwAl8CKMA5N9PjTYkHiRjisVcxcQ1HXdLhx2qxxJzLNQ==
 
-node-fetch@2.6.0:
+node-fetch@2.6.0, node-fetch@^2.2.0:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.0.tgz#e633456386d4aa55863f676a7ab0daa8fdecb0fd"
   integrity sha512-8dG4H5ujfvFiqDmVu9fQ5bOHUC15JMjMY/Zumv26oOvvVJjM67KF8koCWIabKQ1GJIa9r2mMZscBq/TbdOcmNA==
@@ -7742,6 +7755,11 @@ trim-right@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/trim-right/-/trim-right-1.0.1.tgz#cb2e1203067e0c8de1f614094b9fe45704ea6003"
   integrity sha1-yy4SAwZ+DI3h9hQJS5/kVwTqYAM=
+
+"true-myth@^2.0.0":
+  version "2.2.8"
+  resolved "https://registry.yarnpkg.com/true-myth/-/true-myth-2.2.8.tgz#c3ecbc9eacf260d8d5584b102f8bbd10677d8a24"
+  integrity sha512-ds6rEGLDgVZZId9v+WK0kj7gc7x6LOJ8HVGGDrrWekYdJGCShGeV37z39124zgF73OtmlAqoDDZnDTmygr2D4g==
 
 ts-pnp@^1.1.2:
   version "1.1.4"

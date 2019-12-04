@@ -11,10 +11,12 @@
     "start": "next start"
   },
   "dependencies": {
+    "@heroku/buildpack-registry": "^1.0.1",
     "@slonik/migrator": "^0.1.13",
     "@types/slonik": "^19.0.0",
     "cross-fetch": "^3.0.4",
     "esm": "^3.2.25",
+    "heroku-nodejs-build": "^10.15.3",
     "jest": "^24.9.0",
     "js-cookie": "^2.2.1",
     "next": "9.1.3",
