@@ -231,7 +231,7 @@ const Home = (props: Props) => {
 
 Home.getInitialProps = async ({ selection }) => {
   // console.log('Products were sorted by: ', selection);
-  const response = await fetch(`http://localhost:3000/api`, {
+  const response = await fetch(process.env.HOSTNAME, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json; charset=utf-8'

@@ -177,7 +177,7 @@ export default Results;
 
 Results.getInitialProps = async ({ query }) => {
   // console.log(query);
-  const response = await fetch(`http://localhost:3000/api`, {
+  const response = await fetch(process.env.HOSTNAME, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json; charset=utf-8'
