@@ -42,12 +42,15 @@ const WithInitialProps: NextPage<Props> = ({ data }) => {
 };
 
 WithInitialProps.getInitialProps = async ({ query }) => {
-  const response = await fetch(process.env.HOSTNAME, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json; charset=utf-8'
+  const response = await fetch(
+    `https://` + process.env.HOSTNAME + `/api` || `http://localhost:3000/api`,
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8'
+      }
     }
-  });
+  );
 
   const data = await response.json();
 

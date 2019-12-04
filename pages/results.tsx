@@ -177,15 +177,18 @@ export default Results;
 
 Results.getInitialProps = async ({ query }) => {
   // console.log(query);
-  const response = await fetch(process.env.HOSTNAME, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json; charset=utf-8'
-    },
-    body: JSON.stringify({
-      results: query.results
-    })
-  });
+  const response = await fetch(
+    `https://` + process.env.HOSTNAME + `/api` || `http://localhost:3000/api`,
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8'
+      },
+      body: JSON.stringify({
+        results: query.results
+      })
+    }
+  );
 
   const data = await response.json();
   // console.log(data.rows);

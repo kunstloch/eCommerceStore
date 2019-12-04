@@ -252,15 +252,18 @@ export default function Product(props: Props) {
 
 Product.getInitialProps = async ({ query }) => {
   // console.log(query);
-  const response = await fetch(process.env.HOSTNAME, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json; charset=utf-8'
-    },
-    body: JSON.stringify({
-      productname: query.productname
-    })
-  });
+  const response = await fetch(
+    `https://` + process.env.HOSTNAME + `/api` || `http://localhost:3000/api`,
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8'
+      },
+      body: JSON.stringify({
+        productname: query.productname
+      })
+    }
+  );
 
   const data = await response.json();
 
