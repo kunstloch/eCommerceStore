@@ -32,7 +32,13 @@ export default function Footer() {
         Impressum: Alexander Scherer-Sokolowski | Tel: +43 664 7501 8228 <br />
         Schulstrasse 1 - 7304 Grosswarasdorf - Österreich
         <p>
-          <a href="https://alexscherer.dev/">www.alexscherer.dev</a>
+          <a
+            href="https://alexscherer.dev/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            www.alexscherer.dev
+          </a>
         </p>
       </div>
     </FooterContainer>
