@@ -94,7 +94,7 @@ export default function Header() {
           <H1Left>Regionale</H1Left>
           <Link href="/">
             <a>
-              <Logo src="/static/erntedank.PNG" alt="Logo" />
+              <Logo src="/static/erntedank.png" alt="Logo" />
             </a>
           </Link>
           <H1Right>Produkte</H1Right>
