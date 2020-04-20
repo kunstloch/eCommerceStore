@@ -9,7 +9,7 @@
     "dev": "next dev",
     "build": "next build && node migrate up",
     "start": "next start -p $PORT",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run migrate up && npm run build"
   },
   "dependencies": {
     "@heroku/buildpack-registry": "^1.0.1",
