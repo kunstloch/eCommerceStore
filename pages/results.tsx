@@ -2,7 +2,6 @@ import React, { useState, Component } from 'react';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
 import fetch from 'cross-fetch';
-require('dotenv').config();
 
 type Props = {
   searchArray: {

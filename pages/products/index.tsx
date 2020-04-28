@@ -5,7 +5,7 @@ import fetch from 'cross-fetch';
 import styled from 'styled-components';
 
 import { setConfig } from 'react-hot-loader';
-require('dotenv').config();
+
 setConfig({ pureSFC: true });
 
 const Main = styled.div`

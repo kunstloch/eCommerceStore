@@ -3,7 +3,6 @@ import { NextPage } from 'next';
 import Link from 'next/link';
 import fetch from 'cross-fetch';
 import styled from 'styled-components';
-require('dotenv').config();
 
 type Props = {
   data: {

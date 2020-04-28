@@ -8,7 +8,7 @@ import Cookies from 'js-cookie';
 import fetch from 'cross-fetch';
 import styled from 'styled-components';
 
-require('dotenv').config();
+
 
 // const Productlink = styled.a`
 //   text-decoration: none;

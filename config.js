@@ -3,6 +3,6 @@ require('dotenv').config();
 
 export default {
   POSTGRES_CONNECTION_STRING:
-    process.env.URI ||
+    process.env.PG_DATABASE_CONNECTION_STRING ||
     'postgres://ecommerce:ecommerce@localhost:5432/ecommerce'
 };

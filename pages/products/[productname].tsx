@@ -7,7 +7,7 @@ import Router from 'next/router';
 
 import fetch from 'cross-fetch';
 import styled from 'styled-components';
-require('dotenv').config();
+
 
 const ListUl = styled.ul`
   list-style-type: none;
