@@ -6,10 +6,10 @@
     "node": "12.9.0"
   },
   "scripts": {
+    "heroku-postbuild": "npm run migrate up && npm run build",
     "dev": "next dev",
     "build": "next build && node migrate up",
-    "start": "next start -p $PORT",
-    "heroku-postbuild": "npm run migrate up && npm run build"
+    "start": "next start -p $PORT"
   },
   "dependencies": {
     "@heroku/buildpack-registry": "^1.0.1",
