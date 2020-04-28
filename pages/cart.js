@@ -143,7 +143,7 @@ const IMG = styled.img`
 
 const allproducts = getAllProducts();
 
-export default function Cart(props) {
+export default function Cart (props) {
   console.log('Cookie:', props.cookies.Cart);
 
   if (props.cookies.Cart == undefined || null) {
@@ -182,7 +182,7 @@ export default function Cart(props) {
       allProductsInCart.push(Object.assign({}, itm, props.product[i]));
     });
 
-    allProductsInCart.forEach(function(element) {
+    allProductsInCart.forEach(function (element) {
       element.totalPrice = element.price * element.productAmount;
     });
     const [newAllProductsInCart, setNewAllProductsInCart] = useState(
@@ -227,7 +227,7 @@ export default function Cart(props) {
         setAmountofProducts(e.target.value);
       };
 
-      function handleClick() {
+      function handleClick () {
         let cookieParsed = JSON.parse(Cookies.get('Cart'));
         console.log('Cookie Parsed ', cookieParsed);
         cookieParsed[key].productAmount = amountOfProducts * 1;
@@ -336,7 +336,8 @@ Cart.getInitialProps = async ctx => {
     // console.log('listOfIdNoArray');
     // console.log(listOfIdNoArray);
 
-    const response = await fetch(process.env.HOSTNAME, {
+    const response = await fetch(
+      `https://` + process.env.HOSTNAME + `/api` || `http://localhost:3000/api`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json; charset=utf-8'
