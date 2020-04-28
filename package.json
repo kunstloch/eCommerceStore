@@ -6,7 +6,7 @@
     "node": "12.9.0"
   },
   "scripts": {
-    "heroku-postbuild": "npm run migrate up && npm run build",
+    "heroku-postbuild": "node migrate up && npm run build",
     "dev": "next dev",
     "build": "next build && node migrate up",
     "start": "next start -p $PORT"
