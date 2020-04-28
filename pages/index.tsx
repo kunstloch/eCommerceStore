@@ -1,6 +1,7 @@
 import React, { useState, Component } from 'react';
 import fetch from 'cross-fetch';
 import styled from 'styled-components';
+require('dotenv').config();
 
 const Productlink = styled.a`
   text-decoration: none;
@@ -125,7 +126,7 @@ const Home = (props: Props) => {
   // console.log(props);
   const [selection, setSelection] = useState('rating');
 
-  const productObject = props.product.map(product => (
+  const productObject = props.product.map((product) => (
     <Productlink href={'/products/' + product.productname}>
       <ProduktLi key="id">
         <br />
@@ -204,7 +205,7 @@ const Home = (props: Props) => {
             <br />
             <Select
               value={selection}
-              onChange={e => {
+              onChange={(e) => {
                 setSelection(e.target.value);
               }}
             >
@@ -232,15 +233,15 @@ const Home = (props: Props) => {
 Home.getInitialProps = async ({ selection }) => {
   // console.log('Products were sorted by: ', selection);
   const response = await fetch(
-    `http://localhost:3000/api` || process.env.HOSTAPI,
+    `https://` + process.env.HOST + `/api` || `http://localhost:3000/api`,
     {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json; charset=utf-8'
+        'Content-Type': 'application/json; charset=utf-8',
       },
       body: JSON.stringify({
-        rankingNow: selection
-      })
+        rankingNow: selection,
+      }),
     }
   );
 

@@ -7,6 +7,7 @@ import Router from 'next/router';
 
 import fetch from 'cross-fetch';
 import styled from 'styled-components';
+require('dotenv').config();
 
 const ListUl = styled.ul`
   list-style-type: none;
@@ -120,19 +121,19 @@ export default function Product(props: Props) {
   if (!props.product) return <div>Product not found.</div>;
 
   const [productAmount, setProductAmount] = useState(1);
-  const handleAmountInputChanges = e => {
+  const handleAmountInputChanges = (e) => {
     setProductAmount(e.target.value);
   };
   const id = props.product.id;
 
   // * 1 to covert Strint to Number. Better way?
 
-  const sendCookies = e => {
+  const sendCookies = (e) => {
     const productWithAmount = [
       {
         id: id,
-        productAmount: productAmount * 1
-      }
+        productAmount: productAmount * 1,
+      },
     ];
 
     /* let myFirstCookie = 'Cart=' + JSON.stringify(productWithAmount);
@@ -163,7 +164,7 @@ export default function Product(props: Props) {
     }
 
     Router.push({
-      pathname: '/cart'
+      pathname: '/cart',
     });
 
     /*  redirect();
@@ -253,15 +254,15 @@ export default function Product(props: Props) {
 Product.getInitialProps = async ({ query }) => {
   // console.log(query);
   const response = await fetch(
-    `http://localhost:3000/api` || process.env.HOSTAPI,
+    `https://` + process.env.HOST + `/api` || `http://localhost:3000/api`,
     {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json; charset=utf-8'
+        'Content-Type': 'application/json; charset=utf-8',
       },
       body: JSON.stringify({
-        productname: query.productname
-      })
+        productname: query.productname,
+      }),
     }
   );
 

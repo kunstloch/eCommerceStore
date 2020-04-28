@@ -16,6 +16,7 @@
     "@slonik/migrator": "^0.1.13",
     "@types/slonik": "^19.0.0",
     "cross-fetch": "^3.0.4",
+    "dotenv": "^8.2.0",
     "esm": "^3.2.25",
     "heroku": "^7.35.0",
     "heroku-nodejs-build": "^10.15.3",

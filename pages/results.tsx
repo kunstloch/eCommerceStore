@@ -2,6 +2,7 @@ import React, { useState, Component } from 'react';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
 import fetch from 'cross-fetch';
+require('dotenv').config();
 
 type Props = {
   searchArray: {
@@ -148,7 +149,7 @@ const Results = (props: Props) => {
           <br />
           <Select
             value={selection}
-            onChange={e => {
+            onChange={(e) => {
               setSelection(e.target.value);
             }}
           >
@@ -178,15 +179,15 @@ export default Results;
 Results.getInitialProps = async ({ query }) => {
   // console.log(query);
   const response = await fetch(
-    `http://localhost:3000/api` || process.env.HOSTAPI,
+    `https://` + process.env.HOST + `/api` || `http://localhost:3000/api`,
     {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json; charset=utf-8'
+        'Content-Type': 'application/json; charset=utf-8',
       },
       body: JSON.stringify({
-        results: query.results
-      })
+        results: query.results,
+      }),
     }
   );
 

@@ -3,6 +3,7 @@ import Link from 'next/link';
 // import Layout from '../components/Layout';
 import fetch from 'cross-fetch';
 import styled from 'styled-components';
+require('dotenv').config();
 
 type Props = {
   data: {
@@ -20,7 +21,7 @@ type Props = {
 
 const WithInitialProps: NextPage<Props> = ({ data }) => {
   console.log(data.rows);
-  const productObject = data.rows.map(product => (
+  const productObject = data.rows.map((product) => (
     <li key="id">
       {product.id} - {product.productname} - {product.price}
     </li>
@@ -43,12 +44,12 @@ const WithInitialProps: NextPage<Props> = ({ data }) => {
 
 WithInitialProps.getInitialProps = async ({ query }) => {
   const response = await fetch(
-    process.env.HOSTAPI || `http://localhost:3000/api`,
+    `https://` + process.env.HOST + `/api` || `http://localhost:3000/api`,
     {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json; charset=utf-8'
-      }
+        'Content-Type': 'application/json; charset=utf-8',
+      },
     }
   );
 

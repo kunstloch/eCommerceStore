@@ -5,6 +5,7 @@ import fetch from 'cross-fetch';
 import styled from 'styled-components';
 
 import { setConfig } from 'react-hot-loader';
+require('dotenv').config();
 setConfig({ pureSFC: true });
 
 const Main = styled.div`
@@ -49,7 +50,7 @@ const ListUl = styled.ul`
 
 const WithInitialProps: NextPage<Props> = ({ data }) => {
   // console.log(data.rows);
-  const productObject = data.rows.map(product => (
+  const productObject = data.rows.map((product) => (
     <Productlink href={'/products/' + product.productname}>
       <li key="id">
         <br />
@@ -87,15 +88,15 @@ const WithInitialProps: NextPage<Props> = ({ data }) => {
 
 WithInitialProps.getInitialProps = async ({ query }) => {
   const response = await fetch(
-    `https://` + process.env.HOSTNAME + `/api` || `http://localhost:3000/api`,
+    `https://` + process.env.HOST + `/api` || `http://localhost:3000/api`,
     {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json; charset=utf-8'
+        'Content-Type': 'application/json; charset=utf-8',
       },
       body: JSON.stringify({
-        productname: query.productname
-      })
+        productname: query.productname,
+      }),
     }
   );
 

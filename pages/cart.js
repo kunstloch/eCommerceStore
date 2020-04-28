@@ -8,6 +8,8 @@ import Cookies from 'js-cookie';
 import fetch from 'cross-fetch';
 import styled from 'styled-components';
 
+require('dotenv').config();
+
 // const Productlink = styled.a`
 //   text-decoration: none;
 //   color: #8c8084;
@@ -337,7 +339,7 @@ Cart.getInitialProps = async ctx => {
     // console.log(listOfIdNoArray);
 
     const response = await fetch(
-      `https://` + process.env.HOSTNAME + `/api` || `http://localhost:3000/api`, {
+      `https://` + process.env.HOST + `/api` || `http://localhost:3000/api`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json; charset=utf-8'
