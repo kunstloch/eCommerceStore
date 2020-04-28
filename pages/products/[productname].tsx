@@ -8,7 +8,6 @@ import Router from 'next/router';
 import fetch from 'cross-fetch';
 import styled from 'styled-components';
 
-
 const ListUl = styled.ul`
   list-style-type: none;
   display: grid;
@@ -254,7 +253,7 @@ export default function Product(props: Props) {
 Product.getInitialProps = async ({ query }) => {
   // console.log(query);
   const response = await fetch(
-    `https://` + process.env.HOST + `/api` || `http://localhost:3000/api`,
+    process.env.HOSTAPI || `http://localhost:3000/api`,
     {
       method: 'POST',
       headers: {
