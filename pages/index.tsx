@@ -232,7 +232,7 @@ const Home = (props: Props) => {
 Home.getInitialProps = async ({ selection }) => {
   // console.log('Products were sorted by: ', selection);
   const response = await fetch(
-    `https://` + process.env.HOST + `/api` || `http://localhost:3000/api`,
+    process.env.HOSTAPI || `http://localhost:3000/api`,
     {
       method: 'POST',
       headers: {

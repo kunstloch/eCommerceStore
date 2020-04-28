@@ -1,6 +1,6 @@
 // TODO: Rewrite this file with dotenv https://www.npmjs.com/package/dotenv
 
-console.log(process.env);
+// console.log(process.env);
 
 export default {
   POSTGRES_CONNECTION_STRING:
