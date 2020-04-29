@@ -160,11 +160,10 @@ export default function Product(props: Props) {
           'Cart=' + JSON.stringify(cookieNewArray) + '; path=/';
         document.cookie = sendcookieNewArray;
       }
+      Router.push({
+        pathname: '/cart',
+      });
     }
-
-    Router.push({
-      pathname: '/cart',
-    });
 
     /*  redirect();
     function redirect() {
