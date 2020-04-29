@@ -337,19 +337,21 @@ Cart.getInitialProps = async ctx => {
     const listOfIdNoArray = '(' + listOfIds.join(', ') + ')';
     // console.log('listOfIdNoArray');
     // console.log(listOfIdNoArray);
-  };
-  Cart.getInitialProps = async ctx => {
+
+
     const response = await fetch(
-      process.env.HOSTAPI || `http://localhost:3000/api`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json; charset=utf-8'
-      },
-      body: JSON.stringify({
-        incart: listOfIdNoArray,
-        listOfIds
-      })
-    });
+      process.env.HOSTAPI,
+      //|| `http://localhost:3000/api`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json; charset=utf-8'
+        },
+        body: JSON.stringify({
+          incart: listOfIdNoArray,
+          listOfIds
+        })
+      });
 
     const data = await response.json();
 
