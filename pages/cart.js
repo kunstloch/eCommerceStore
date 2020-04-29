@@ -337,7 +337,8 @@ Cart.getInitialProps = async ctx => {
     const listOfIdNoArray = '(' + listOfIds.join(', ') + ')';
     // console.log('listOfIdNoArray');
     // console.log(listOfIdNoArray);
-
+  };
+  Cart.getInitialProps = async ctx => {
     const response = await fetch(
       process.env.HOSTAPI || `http://localhost:3000/api`, {
       method: 'POST',
