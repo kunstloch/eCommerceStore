@@ -1,0 +1,2 @@
+*.js linguist-detectable=false
+*.tsx linguist-detectable=true
