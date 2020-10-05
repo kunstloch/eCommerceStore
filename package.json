@@ -19,7 +19,7 @@
     "dotenv": "8.2.0",
     "esm": "3.2.25",
     "heroku": "7.39.5",
-    "heroku-nodejs-build": "10.15.3",
+    "heroku-nodejs-build": "10.22.1",
     "jest": "24.9.0",
     "js-cookie": "2.2.1",
     "next": "9.5.3",
