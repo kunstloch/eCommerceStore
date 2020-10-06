@@ -2069,13 +2069,15 @@
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.7.0.tgz#9a06f4f137ee84d7df0460c1fdb1135ffa6c50fd"
   integrity sha512-ONhaKPIufzzrlNbqtWFFd+jlnemX6lJAgq9ZeiZtS7I1PIf/la7CW4m83rTXRnVnsMbW2k56pGYu7AUFJD9Pow==
 
-"@slonik/migrator@0.1.13":
-  version "0.1.13"
-  resolved "https://registry.yarnpkg.com/@slonik/migrator/-/migrator-0.1.13.tgz#181551032d6200a8e1e937bfbe7a64a1bc29fad7"
-  integrity sha512-LU5vPLPY4RIFVIxYDSzbYsSobQuB/s5quBSPbx0kK7rvylPtICciFFqcWpBcKgIV7yO9Zbfzopv9PpaqxX3Dhw==
+"@slonik/migrator@0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@slonik/migrator/-/migrator-0.5.0.tgz#7316371885bbe9101c44f6a6c94a27e073a3bf23"
+  integrity sha512-kONxCYKLlrsw74vf9n1bN+v103718Pe0PnpyxWQnVcqEwyvmFz4oCk9ATpXd9EDzY5U35Z/G9bLyWz1AQZvvdg==
   dependencies:
+    dedent "^0.7.0"
     lodash "^4.17.15"
-    umzug "^2.2.0"
+    slonik-sql-tag-raw "^1.0.1"
+    umzug "^2.3.0"
 
 "@szmarczak/http-timer@^1.1.2":
   version "1.1.2"
@@ -3951,6 +3953,11 @@ decompress-response@^3.3.0:
   integrity sha1-gKTdMjdIOEv6JICDYirt7Jgq3/M=
   dependencies:
     mimic-response "^1.0.0"
+
+dedent@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/dedent/-/dedent-0.7.0.tgz#2495ddbaf6eb874abb0e1be9df22d2e5a544326c"
+  integrity sha1-JJXduvbrh0q7Dhvp3yLS5aVEMmw=
 
 deep-is@~0.1.3:
   version "0.1.3"
@@ -8242,7 +8249,7 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
     hash-base "^3.0.0"
     inherits "^2.0.1"
 
-roarr@^2.15.3:
+roarr@^2.15.2, roarr@^2.15.3:
   version "2.15.4"
   resolved "https://registry.yarnpkg.com/roarr/-/roarr-2.15.4.tgz#f5fe795b7b838ccfe35dc608e0282b9eba2e7afd"
   integrity sha512-CHhPh+UNHD2GTXNYhPWLnU8ONHdI+5DI+4EYIAOaiD63rHeYlZvyh8P+in5999TTSFgUYuKUAjzRI4mdh/p+2A==
@@ -8408,6 +8415,13 @@ semver@^6.0.0, semver@^6.2.0, semver@^6.3.0:
   resolved "https://registry.yarnpkg.com/semver/-/semver-6.3.0.tgz#ee0a64c8af5e8ceea67687b133761e1becbd1d3d"
   integrity sha512-b39TBaTSfV6yBrapU89p5fKekE2m/NwnDocOVruQFS1/veMgdzuPcnOM34M6CwxW8jH/lxEa5rBoDeUwu5HHTw==
 
+serialize-error@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/serialize-error/-/serialize-error-6.0.0.tgz#ccfb887a1dd1c48d6d52d7863b92544331fd752b"
+  integrity sha512-3vmBkMZLQO+BR4RPHcyRGdE09XCF6cvxzk2N2qn8Er3F91cy8Qt7VvEbZBOpaL53qsBbe2cFOefU6tRY6WDelA==
+  dependencies:
+    type-fest "^0.12.0"
+
 serialize-error@^7.0.1:
   version "7.0.1"
   resolved "https://registry.yarnpkg.com/serialize-error/-/serialize-error-7.0.1.tgz#f1360b0447f61ffb483ec4157c737fab7d778e18"
@@ -8507,7 +8521,17 @@ slash@^2.0.0:
   resolved "https://registry.yarnpkg.com/slash/-/slash-2.0.0.tgz#de552851a1759df3a8f206535442f5ec4ddeab44"
   integrity sha512-ZYKh3Wh2z1PpEXWr0MpSBZ0V6mZHAQfYevttO11c51CaWjGTaadiKZ+wVt1PbMlDV5qhMFslpZCemhwOK7C89A==
 
-slonik@22.5.0:
+slonik-sql-tag-raw@^1.0.1:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/slonik-sql-tag-raw/-/slonik-sql-tag-raw-1.0.2.tgz#15e3ab1184e96a3f1c16ce38d4acd08f17a3767b"
+  integrity sha512-wjUsnDUtUTYnxBReFVjuy35l4YO4alWJwrAMqQz04UuhPA29cRGR9VojFBLhCPxD9F9/MsjNYVWa3YTFBqhlxA==
+  dependencies:
+    lodash "^4.17.15"
+    roarr "^2.15.2"
+    serialize-error "^6.0.0"
+    slonik "^22.4.4"
+
+slonik@22.5.0, slonik@^22.4.4:
   version "22.5.0"
   resolved "https://registry.yarnpkg.com/slonik/-/slonik-22.5.0.tgz#98c5c6165e79ade1b9e01e17f24e5943e98ef0d0"
   integrity sha512-Ii98KXXqk+PzFGyT20cf9sboORKcKOVJDUmm2/LV506ancLDHeTMFrFXTK5+p8q+i7+nxVvMjuCUmZzldwp/Ww==
@@ -9340,6 +9364,11 @@ type-fest@^0.11.0:
   resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-0.11.0.tgz#97abf0872310fed88a5c466b25681576145e33f1"
   integrity sha512-OdjXJxnCN1AvyLSzeKIgXTXxV+99ZuXl3Hpo9XpJAv9MBcHrrJOQ5kV7ypXOuQie+AmWG25hLbiKdwYTifzcfQ==
 
+type-fest@^0.12.0:
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-0.12.0.tgz#f57a27ab81c68d136a51fd71467eff94157fa1ee"
+  integrity sha512-53RyidyjvkGpnWPMF9bQgFtWp+Sl8O2Rp13VavmJgfAP9WWG6q6TkrKU8iyJdnwnfgHI6k2hTlgqH4aSdjoTbg==
+
 type-fest@^0.13.1:
   version "0.13.1"
   resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-0.13.1.tgz#0172cb5bce80b0bd542ea348db50c7e21834d934"
@@ -9385,7 +9414,7 @@ ulid@^2.3.0:
   resolved "https://registry.yarnpkg.com/ulid/-/ulid-2.3.0.tgz#93063522771a9774121a84d126ecd3eb9804071f"
   integrity sha512-keqHubrlpvT6G2wH0OEfSW4mquYRcbe/J8NMmveoQOjUqmo+hXtO+ORCpWhdbZ7k72UtY61BL7haGxW6enBnjw==
 
-umzug@^2.2.0:
+umzug@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/umzug/-/umzug-2.3.0.tgz#0ef42b62df54e216b05dcaf627830a6a8b84a184"
   integrity sha512-Z274K+e8goZK8QJxmbRPhl89HPO1K+ORFtm6rySPhFKfKc5GHhqdzD0SGhSWHkzoXasqJuItdhorSvY7/Cgflw==
