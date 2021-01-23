@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@heroku/buildpack-registry": "1.0.1",
-    "@slonik/migrator": "0.5.0",
+    "@slonik/migrator": "0.7.0",
     "@types/slonik": "22.1.4",
     "cross-fetch": "3.0.6",
     "dotenv": "8.2.0",
