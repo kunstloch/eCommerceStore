@@ -4674,10 +4674,10 @@ heroku-exec-util@0.7.5:
     temp "0.8.3"
     uuid "3.2.1"
 
-heroku-nodejs-build@10.22.1:
-  version "10.22.1"
-  resolved "https://registry.yarnpkg.com/heroku-nodejs-build/-/heroku-nodejs-build-10.22.1.tgz#11ec92b83812cdb78d63a0485b09039b330e4191"
-  integrity sha512-2mywldZ1741dYq85hMvdDByUaZ4vKSmtcy6qYuM5IfqsslQSowmrve1eUcg51VqsA13JTIE8fIDTC7KWTObt7w==
+heroku-nodejs-build@12.20.1:
+  version "12.20.1"
+  resolved "https://registry.yarnpkg.com/heroku-nodejs-build/-/heroku-nodejs-build-12.20.1.tgz#2c08da94ca4b00f1ffedb69be8b9d0891ad936fe"
+  integrity sha512-ALHrXDcfIsfsIu5MU9pI3xQSd7/dJSGKu40DQQe8735/fD3wbVqXZmtkJB1P64981+g3/+8YbMRR/5MTobrgYA==
 
 heroku@7.47.6:
   version "7.47.6"
