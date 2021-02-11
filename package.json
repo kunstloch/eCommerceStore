@@ -18,7 +18,7 @@
     "cross-fetch": "3.0.6",
     "dotenv": "8.2.0",
     "esm": "3.2.25",
-    "heroku": "7.47.6",
+    "heroku": "7.47.12",
     "heroku-nodejs-build": "12.20.1",
     "jest": "26.5.3",
     "js-cookie": "2.2.1",
