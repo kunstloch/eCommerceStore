@@ -20,7 +20,7 @@
     "esm": "3.2.25",
     "heroku": "7.47.12",
     "heroku-nodejs-build": "12.20.1",
-    "jest": "26.5.3",
+    "jest": "26.6.3",
     "js-cookie": "2.2.1",
     "next": "10.0.5",
     "next-cookies": "2.0.3",
