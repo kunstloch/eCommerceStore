@@ -28,7 +28,7 @@
     "react-dom": "18.2.0",
     "react-hot-loader": "4.13.0",
     "router": "1.3.8",
-    "slonik": "23.0.0",
+    "slonik": "23.9.0",
     "styled-components": "5.3.9",
     "type": "2.5.0"
   },
