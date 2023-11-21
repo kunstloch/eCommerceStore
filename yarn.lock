@@ -1990,10 +1990,10 @@
   resolved "https://registry.yarnpkg.com/@types/semver/-/semver-7.3.13.tgz#da4bfd73f49bd541d28920ab0e2bf0ee80f71c91"
   integrity sha512-21cFJr9z3g5dW8B0CVI9g2O9beqaThGQ6ZFBqHfwhzLDKUxaqTIy3vnfah/UPkfOiF2pLq+tGz+W8RyCskuslw==
 
-"@types/slonik@22.1.4":
-  version "22.1.4"
-  resolved "https://registry.yarnpkg.com/@types/slonik/-/slonik-22.1.4.tgz#cca298eaa7de48f6f6d0e0a1235f9aaa0cbceac5"
-  integrity sha512-0yCZsPh2qNFyR/Cbqcq5p5noG74POTauZjDuNY3oHGVKUTQjEpXtJ4AXkzV2SeEjZgiWUmLLD0/ZeaI6nMPIhw==
+"@types/slonik@22.1.11":
+  version "22.1.11"
+  resolved "https://registry.yarnpkg.com/@types/slonik/-/slonik-22.1.11.tgz#611455dfc3e56fbe2da21474b4169697b5752ab8"
+  integrity sha512-R0DI0mX2HoPwkgAZICr4uzLLcUCsd88tPgJJe/eFRAhOoCbQzkErmLh1oiqRI+VBcR43Bsj9gqjVMXtHxif6Kg==
   dependencies:
     "@types/node" "*"
 
