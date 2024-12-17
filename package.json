@@ -22,7 +22,7 @@
     "heroku-nodejs-build": "12.20.1",
     "jest": "29.7.0",
     "js-cookie": "2.2.1",
-    "next": "10.0.5",
+    "next": "14.2.15",
     "next-cookies": "2.0.3",
     "react": "18.3.1",
     "react-dom": "18.3.1",
